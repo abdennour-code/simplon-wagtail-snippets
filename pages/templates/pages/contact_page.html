@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load wagtailcore_tags %}}
 {% block body_class %}template-contactpage{% endblock %}
 
 {% block content %}
@@ -7,15 +7,27 @@
 
 
 <div class="content">
+        <!-- Ajout du formulaire dynamique  -->
+
+        <form action="{% pageurl page %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Envoyer">
+        </form>
+
+
     <h1>Contact</h1>
 
     <address>
         12 rue de la Forme<br>
         33000 Bordeaux
     </address>
-
+       
     <p><strong>Téléphone :</strong> 05 56 00 00 00</p>
     <p><strong>Email :</strong> contact@coach-max.fr</p>
+
+
 </div>
 
 {% endblock content %}
+

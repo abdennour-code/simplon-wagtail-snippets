@@ -11,6 +11,7 @@ ALLOWED_HOSTS = ["*"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+#au lieu d'envoyer un vrai email, Django affiche son contenu dans le terminal
 
 try:
     from .local import *
